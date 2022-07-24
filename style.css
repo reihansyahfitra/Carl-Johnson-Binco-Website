@@ -4,8 +4,8 @@
 
 @font-face {
     font-family: 'Pricedown';
-    src: url('pricedown_bl-webfont.woff2') format('woff2'),
-         url('pricedown_bl-webfont.woff') format('woff');
+    src: url('fonts/pricedown_bl-webfont.woff2') format('woff2'),
+         url('fonts/pricedown_bl-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -107,13 +107,34 @@ html, body {
     margin: 15px;
 }
 
+.featured-image {
+    float: right;
+    height: 220px;
+    margin: 15px;
+}
+
 .main-footer {
     background-color: #774d22;
     color: white;
     padding: .25em 0;
-    margin-top: 55vh;
     width:100%;
     bottom:0;
+}
+
+.main-footer-index {
+    background-color: #774d22;
+    color: white;
+    padding: .25em 0;
+    width:100%;
+    bottom:0;
+    position: fixed;
+}
+
+#body {
+    flex-grow: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .main-footer-container {
@@ -138,6 +159,30 @@ html, body {
     display: block;
 }
 
+.btn-pos {
+    text-align: left;
+    cursor: pointer;
+    margin: 0 auto;
+    padding: .5em;
+}
+
+.btn-header-pos {
+    margin: 1em auto;
+    color: #333;
+    border: 2px solid #774d22;
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: 0;
+    text-decoration: none;
+    font-size: 1.3em;
+    font-weight: lighter;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+.btn-header-pos:hover {
+    background-color: rgba(0, 0, 0, .3);
+}
+
 .btn-header {
     margin: 1em auto;
     color: white;
@@ -145,7 +190,7 @@ html, body {
     background-color: rgba(255, 255, 255, .1);
     border-radius: 0;
     text-decoration: none;
-    font-size: 1.5em;
+    font-size: 1.3em;
     font-weight: lighter;
     padding-left: 2em;
     padding-right: 2em;
@@ -155,10 +200,6 @@ html, body {
     background-color: rgba(255, 255, 255, .3);
 }
 
-.download-section {
-    text-align: center;
-    font-family: 'Kanit', sans-serif;
-}
 .btn-download {
     appearance: none;
   background-color: #2ea44f;
