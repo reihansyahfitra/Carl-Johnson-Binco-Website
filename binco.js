@@ -64,13 +64,6 @@ function addItemToCart(title,price,image) {
     var cartRow = document.createElement('div')
     cartRow.classList.add('cart-row')
     var cartItems = document.getElementsByClassName('items-cart')[0]
-    var cartItemNames = cartItems.getElementsByClassName('cart-item-title')
-    for (var i = 0; i < cartItemNames.length; i++) {
-        if (cartItemNames[i].innerText==title) {
-            window.alert('This item is already in the cart!')
-            return
-        }
-    }
     var cartRowContents = `
         <div class="cart-item cart-column">
             <img class="cart-item-image" width="100" height="100" src="${image}">
@@ -82,12 +75,20 @@ function addItemToCart(title,price,image) {
             <button class="btn btn-danger" type="button">REMOVE</button>
         </div>`
         cartRow.innerHTML = cartRowContents
+    var cartItemNames = cartItems.getElementsByClassName('cart-item-title')
+    for (var i = 0; i < cartItemNames.length; i++) {
+        if (cartItemNames[i].innerText==title) {
+            window.alert('This item is already in the cart!')
+            return
+        }
+    }
     cartItems.append(cartRow)
     cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
     cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged)
 }
 
 function updateTotalPrice() {
+    var cartSection = document.getElementsByClassName('cart-section')[0]
     var cartItemContainer = document.getElementsByClassName("items-cart")[0]
     var cartRows = cartItemContainer.getElementsByClassName('cart-row')
     var total = 0
@@ -101,4 +102,9 @@ function updateTotalPrice() {
     }
     total = Math.round(total*100)/100
     document.getElementsByClassName('cart-total-price')[0].innerText = '$'+total
+    if (total > 0) {
+        cartSection.style.display = 'block'
+    } else {
+        cartSection.style.display = 'none'
+    }
 }
